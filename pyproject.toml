@@ -1,6 +1,6 @@
 [project]
 name = "javakh-interface"
-version = "0.0.1"
+version = "0.0.2"
 description = "use python to solve khovanov homology with javakh (jre needed)."
 authors = [
     {name = "GGN_2015",email = "neko@jlulug.org"}
@@ -9,6 +9,10 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "java_simple_interface",
+    "pd_code_sanity",
+    "pd_code_delete_nugatory",
+    "pd_code_de_r1"
 ]
 include = [
     { path = "javakh_interface/data", format = ["sdist", "wheel"] }
