@@ -2,6 +2,7 @@ import java_simple_interface
 import pd_code_sanity
 import pd_code_delete_nugatory
 import pd_code_de_r1
+import simple_rands
 
 import tempfile
 import shutil
@@ -48,8 +49,9 @@ def solve_khovanov(pd_code:list[list], encoding:Optional[str]=None) -> str:
         return "q^-1*t^0*Z[0] + q^1*t^0*Z[0]"
     
     # 创建一个系统临时目录，可以自动清理环境
+    # 加长了随机文件名的长度避免冲突
     with tempfile.TemporaryDirectory(
-        prefix="javakh_runtime_"
+        prefix="javakh_runtime_" + simple_rands.gen(15) + "_"
     ) as temp_dir:
         
         TMP_JAVAKH_FOLDER = os.path.join(temp_dir, "javakh_runtime")
