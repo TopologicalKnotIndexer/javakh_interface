@@ -1,6 +1,6 @@
 [project]
 name = "javakh-interface"
-version = "0.0.3"
+version = "0.0.4"
 description = "use python to solve khovanov homology with javakh (jre needed)."
 authors = [
     {name = "GGN_2015",email = "neko@jlulug.org"}
@@ -13,7 +13,9 @@ dependencies = [
     "pd_code_sanity",
     "pd_code_delete_nugatory",
     "pd_code_de_r1",
-    "simple_rands"
+    "simple_rands",
+    "is_windows_system",
+    "console_default_encoding"
 ]
 include = [
     { path = "javakh_interface/data", format = ["sdist", "wheel"] }

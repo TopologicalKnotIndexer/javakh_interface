@@ -3,18 +3,13 @@ import pd_code_sanity
 import pd_code_delete_nugatory
 import pd_code_de_r1
 import simple_rands
+from is_windows_system import is_windows_system
+from console_default_encoding import get_console_default_encoding
 
 import tempfile
 import shutil
 import os
 from typing import Optional
-
-try:
-    from .is_win import is_windows_system
-    from .con_de import get_console_default_encoding
-except:
-    from is_win import is_windows_system
-    from con_de import get_console_default_encoding
 
 DIRNOW = os.path.dirname(os.path.abspath(__file__))
 JAVAKH_TEMPLATE = os.path.join(DIRNOW, "data", "javakh_ori_temp")
