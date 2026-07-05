@@ -1,6 +1,6 @@
 [project]
 name = "javakh-interface"
-version = "0.0.4"
+version = "0.1.0"
 description = "use python to solve khovanov homology with javakh (jre needed)."
 authors = [
     {name = "GGN_2015",email = "neko@jlulug.org"}

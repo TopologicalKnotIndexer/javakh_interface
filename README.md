@@ -13,5 +13,5 @@ pip install javakh-interface
 import javakh_interface
 
 pd_code = [[1, 5, 2, 4], [3, 1, 4, 6], [5, 3, 6, 2]]
-print(javakh_interface.solve_khovanov(pd_code))
+print(javakh_interface.solve_khovanov(pd_code, de_r1=True, de_k8=True))
 ```

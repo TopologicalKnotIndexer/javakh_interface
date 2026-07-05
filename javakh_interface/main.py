@@ -18,7 +18,11 @@ def __pd_code_wrapper(pd_code: list) -> str: # 获取 JavaKh 输入风格的名�
     xlist = ["X" + str(x) for x in pd_code]  # 交叉点序列
     return "PD[" + (", ".join(xlist)) + "]"
 
-def solve_khovanov(pd_code:list[list], encoding:Optional[str]=None) -> str:
+def solve_khovanov(
+        pd_code:list[list], 
+        encoding:Optional[str]=None, 
+        de_r1:bool=True,
+        de_k8:bool=True) -> str:
 
     # 检查模板目录是否存在
     if not os.path.isdir(JAVAKH_TEMPLATE):
@@ -36,8 +40,10 @@ def solve_khovanov(pd_code:list[list], encoding:Optional[str]=None) -> str:
     assert isinstance(encoding, str)
     
     # 删除 r1 和 nugatory
-    pd_code = pd_code_de_r1.de_r1(pd_code)
-    pd_code = pd_code_delete_nugatory.erase_all_nugatory(pd_code)
+    if de_r1:
+        pd_code = pd_code_de_r1.de_r1(pd_code)
+    if de_k8:
+        pd_code = pd_code_delete_nugatory.erase_all_nugatory(pd_code)
     
     # 避免空扭结
     if pd_code == []:
