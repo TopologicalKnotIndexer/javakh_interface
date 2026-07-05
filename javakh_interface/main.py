@@ -22,7 +22,8 @@ def solve_khovanov(
         pd_code:list[list], 
         encoding:Optional[str]=None, 
         de_r1:bool=True,
-        de_k8:bool=True) -> str:
+        de_k8:bool=True,
+        show_real_pdcode:bool=False) -> str:
 
     # 检查模板目录是否存在
     if not os.path.isdir(JAVAKH_TEMPLATE):
@@ -44,6 +45,9 @@ def solve_khovanov(
         pd_code = pd_code_de_r1.de_r1(pd_code)
     if de_k8:
         pd_code = pd_code_delete_nugatory.erase_all_nugatory(pd_code)
+
+    if show_real_pdcode:
+        print(f"Real PD code after de_r1 and de_k8: {pd_code}")
     
     # 避免空扭结
     if pd_code == []:
@@ -93,5 +97,8 @@ def solve_khovanov(
     raise RuntimeError(f"Result not found in output: {result["stdout"]}.")
 
 if __name__ == "__main__":
-    pd_code = [[6, 1, 7, 2], [8, 3, 5, 4], [2, 5, 3, 6], [4, 7, 1, 8]]
-    print(solve_khovanov(pd_code))
+    pd_code = [[2, 9, 3, 10], [4, 7, 1, 8], [6, 11, 7, 12], [8, 3, 5, 4], [10, 1, 9, 2], [12, 5, 11, 6]]
+    print(solve_khovanov(pd_code, show_real_pdcode=True) + "\n")
+    print(solve_khovanov(pd_code, de_r1=False, show_real_pdcode=True) + "\n")
+    print(solve_khovanov(pd_code, de_k8=False, show_real_pdcode=True) + "\n")
+    print(solve_khovanov(pd_code, de_r1=False, de_k8=False, show_real_pdcode=True) + "\n")
