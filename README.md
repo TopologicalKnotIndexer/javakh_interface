@@ -1,17 +1,23 @@
-# javakh_interface
-use python to solve khovanov homology with javakh (jre needed).
+# javakh-interface
 
-## Install
+Compute integral Khovanov homology through the corrected, high-performance cppkh backend.
+
+## Installation
 
 ```bash
 pip install javakh-interface
 ```
 
-## Usage
+## Quick start
 
-```python
-import javakh_interface
+`from javakh_interface import solve_khovanov` then `solve_khovanov(pd_code)`.
 
-pd_code = [[1, 5, 2, 4], [3, 1, 4, 6], [5, 3, 6, 2]]
-print(javakh_interface.solve_khovanov(pd_code, de_r1=True, de_k8=True))
-```
+PD codes are lists of four-entry crossings. Each arc label must occur exactly twice. Functions validate their inputs and do not mutate caller-owned PD-code lists unless explicitly documented.
+
+## Development
+
+Use Python 3.10 or newer for Python packages. Build distributions with `poetry build`. Run the package's tests or examples before publishing. C++ projects require a modern standards-compliant compiler.
+
+## License
+
+MIT. See `LICENSE`.
