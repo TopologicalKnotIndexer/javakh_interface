@@ -1,6 +1,6 @@
 [project]
 name = "javakh-interface"
-version = "0.2.1"
+version = "0.2.2"
 description = "Compatible Khovanov interface backed by the corrected high-performance cppkh engine."
 authors = [
     {name = "GGN_2015",email = "neko@jlulug.org"}
@@ -9,7 +9,7 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "cppkh-interface>=0.2.0"
+    "cppkh-interface>=0.2.1"
 ]
 
 
