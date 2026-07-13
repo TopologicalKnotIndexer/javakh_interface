@@ -19,7 +19,7 @@ print(solve_khovanov(pd))
 
 ## Algorithm
 
-The public function validates the PD code, optionally simplifies Reidemeister-I and nugatory crossings, and sends the normalized `PD[X[...]]` document to the high-performance integer Khovanov backend. The backend constructs the cube of resolutions, composes cobordism maps, performs chain-complex reductions, and reports the bigraded free and torsion groups in `q^...*t^...*Z[...]` form. The wrapper preserves the historical `solve_khovanov` signature.
+The compatibility wrapper forwards the historical `solve_khovanov` options to `cppkh-interface`. That backend validates the PD code, optionally simplifies Reidemeister-I and nugatory crossings, and evaluates the normalized diagram with its integer Khovanov engine. Batch and explicit crossing-sign APIs are forwarded without silently changing arguments, so downstream link-orientation enumeration can share one native process.
 
 ## Input conventions
 
@@ -32,12 +32,13 @@ A PD code is represented as a list of four-entry crossings. Arc labels normally 
 
 ## Development
 
-Run examples and package checks before release. Python packages require Python 3.10 or newer. Build PyPI artifacts with:
+Python 3.10 or newer is required. Contract tests use a mock native backend and therefore do not compile C++:
 
 ```bash
-poetry check
-poetry build
+python -m unittest discover -s tests -v
 ```
+
+No PyPI publication is performed as part of repository maintenance.
 
 ## License
 
